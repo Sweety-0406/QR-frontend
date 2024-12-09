@@ -19,7 +19,6 @@ const MenuList = () => {
       data.forEach(item => {
         initialQuantities[item.id] = 1; 
       });
-      setQuantities(initialQuantities);
     };
 
     fetchMenuItems();
@@ -43,7 +42,8 @@ const MenuList = () => {
       toast.success("Order placed successfully.");
     } catch (error) {
       toast.error("Something went wrong.");
-    } finally{
+    }
+     finally{
       setQuantities({
         ...quantities,
         [itemId]: "1"
@@ -55,7 +55,7 @@ const MenuList = () => {
     setQuantities({
       ...quantities,
       [itemId]: value
-    });
+    }); 
   };
 
   return (
@@ -64,7 +64,7 @@ const MenuList = () => {
       <ul className=''>
         {menuItems.length > 0 && menuItems.map((item) => (
           <div
-            key={item.id} // Add key here to avoid React warnings
+            key={item.id} 
             className='grid gap-2 justify-between mb-2 border rounded-md p-2 text-white'
           >
             <div>
