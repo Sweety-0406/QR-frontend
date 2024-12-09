@@ -14,7 +14,12 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response  = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/register`,{ email, password, name, role } )
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/register`,
+        { email, password, name, role }, 
+        {headres:{
+          'Content-Type': 'application/json',
+        }}
+      )
       toast.success("Successully registered.")
       navigate('/')
     } catch (error) {

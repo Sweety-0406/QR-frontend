@@ -12,7 +12,7 @@ const AddMenuItem = () => {
     const newItem = { name, description, price: parseFloat(price) };
     const token = localStorage.getItem("token");
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/menu/add-menu-item`, 
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/menu/add-menu-item`, 
           newItem,
           {
               headers: {

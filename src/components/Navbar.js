@@ -8,7 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const logoutHandler = async ()=>{
     try {
-      const response  = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/logout`)
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/logout`)
       localStorage.removeItem("token"); 
       toast.success("Successfully logged out.")
       navigate('/')
